@@ -14,27 +14,43 @@ public class Main {
         System.out.println("Let's start off by you taking your first guess.");
 
         //logic
-        int randomNumber = (int) (Math.random()*100)+1;
+
 
         do {
-            pickedNumber = keyboard.nextInt();
-            System.out.println(logic(pickedNumber, randomNumber));
-        } while (pickedNumber != randomNumber);
+            int randomNumber = (int) (Math.random() * 100) + 1;
 
-        
+            do {
+                pickedNumber = keyboard.nextInt();
+                System.out.println(logic(pickedNumber, randomNumber));
+            } while (pickedNumber != randomNumber);
 
-
-
-            //game loop
-
+                //game loop
             System.out.println("Do you want to play again?");
-            response =keyboard.next();
+            response = keyboard.next();
 
-            //logic method
+        } while (!response.equalsIgnoreCase("yes"));
+    }
 
-        }
+        public static String logic(int pickedNumber, int randomNumber){
+            //return variable
+            String numberGuess;
+
+            if (pickedNumber < randomNumber) {
+                numberGuess = ("Too low, try again :) ");
+            }
+            else if (pickedNumber > randomNumber){
+                numberGuess = ("Too high, try again :)");
+            }
+            else {
+                numberGuess =("Congratulations! You won!");
+            }
+            return numberGuess;
+
+
+
+            }
 
     }
 
 
-}
+
